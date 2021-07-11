@@ -1,0 +1,89 @@
+.sidebar {
+  position: fixed;
+  margin-top: 50px;
+  width: 238px;
+  height: 100vh;
+  background: #efeff1;
+  z-index: 99;
+  h5 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px;
+  }
+}
+
+.sidebar__container--channel {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e6e6ea;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 99%;
+  }
+}
+
+.channel__container--info {
+  position: relative;
+  width: 100%;
+  padding-left: 15px;
+  h6 {
+    font-weight: bold;
+    font-size: 14px;
+    color: #1f1f23;
+    padding-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 114px;
+  }
+
+  .game-name {
+    font-size: 13px;
+    color: #53535f;
+    font-weight: 400;
+    width: 114px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .viewers {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    color: #1f1f23;
+    font-size: 13px;
+    font-weight: 400;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -14px;
+      top: 2px;
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background-color: crimson;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    width: $size-sidebar-small;
+
+    h5 {
+      display: none;
+    }
+  }
+
+  .channel__container--info {
+    display: none;
+  }
+}

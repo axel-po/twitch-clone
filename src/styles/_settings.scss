@@ -1,0 +1,29 @@
+/* Typo */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+$font-inter: "Inter", sans-serif;
+
+/* Colors */
+$violet: #9147ff;
+
+/* Size */
+$size-sidebar-small: 50px;
+
+body {
+  font-family: $font-inter;
+  background: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.App {
+  // padding: 75px 25px 30px 263px;
+  padding: 50px 0px 0px 238px;
+}
+
+@media screen and (max-width: 1200px) {
+  .App {
+    padding: 50px 0px 0px $size-sidebar-small;
+  }
+}

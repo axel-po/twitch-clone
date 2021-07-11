@@ -1,0 +1,110 @@
+.live {
+  width: 100%;
+}
+
+.live__container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 238px;
+  top: 533px;
+  display: flex;
+  padding: 40px 50px;
+  background: #f7f7f8;
+}
+
+.live__container--logo {
+  margin-right: 15px;
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 99px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.live__container--infos {
+  position: relative;
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 10px 0 2px;
+    font-weight: 600;
+  }
+
+  span {
+    color: $violet;
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .language {
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 5px 10px;
+    border-radius: 9px;
+    background: #eaeaeb;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    &:hover {
+      background-color: #dededf;
+    }
+  }
+
+  svg {
+    margin-right: 7px;
+  }
+
+  .viewers-live {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #971311;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .live__container {
+    left: $size-sidebar-small;
+  }
+}
+
+@media screen and (max-width: 684px) {
+  .live__container {
+    padding: 40px 20px;
+  }
+}
+
+@media screen and (max-height: 650px) {
+  .live__container {
+    padding: 40px 20px 110px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .live__container {
+    flex-direction: column;
+    padding: 40px 20px 260px;
+  }
+
+  .live__container--infos {
+    h4 {
+      margin: 20px 0;
+    }
+  }
+}
