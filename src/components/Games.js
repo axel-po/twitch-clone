@@ -10,6 +10,8 @@ export default function Games() {
       const result = await api.get("https://api.twitch.tv/helix/games/top");
 
       let dataArray = result.data.data;
+      let pagination = result.data.pagination;
+      
       let finalArray = dataArray.map((game) => {
         let newUrl = game.box_art_url
           .replace("{width}", "285")
@@ -19,7 +21,7 @@ export default function Games() {
         return game;
       });
 
-      setGames(finalArray.splice(0, 10));
+      setGames(finalArray);
     };
 
     fetchData();

@@ -7,7 +7,7 @@ export default function GameStreams() {
   let { slug } = useParams();
   let location = useLocation();
   const [infosGame, setInfosGame] = useState([]);
-  const [viewers, setViewers] = useState(0);
+  // const [viewers, setViewers] = useState(0);
   const [streams, setStreams] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function GameStreams() {
       const dataArray = result.data.data[0];
       let urlImg = dataArray.box_art_url
         .replace("{width}", "142")
-        .replace("{height}", "189");
+        .replace("{height}", "192");
 
       dataArray.box_art_url = urlImg;
       setInfosGame(dataArray);
@@ -63,6 +63,7 @@ export default function GameStreams() {
           if (login.login === stream.user_login) {
             stream.userLogo = login.profile_image_url;
           }
+          return login;
         });
 
         return stream;

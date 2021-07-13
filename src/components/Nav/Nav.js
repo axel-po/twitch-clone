@@ -5,7 +5,9 @@ export default function Nav() {
   return (
     <nav>
       <div className="nav__logo">
-        <img src={IconTwitch} alt="icon de Twitch" />
+        <Link to="/">
+          <img src={IconTwitch} alt="icon de Twitch" />
+        </Link>
         <Link to="/">
           <p>Parcourir</p>
         </Link>
