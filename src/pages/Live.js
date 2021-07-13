@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import api from "../api";
 import ReactTwitchEmbedVideo from "react-twitch-embed-video";
 import { useParams } from "react-router-dom";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import userOutlined from "@iconify/icons-ant-design/user-outlined";
+import { Link } from "react-router-dom";
+
 export default function Live() {
   let { slug } = useParams();
 
@@ -42,7 +44,13 @@ export default function Live() {
         <div className="live__container--infos">
           <h4>{infosStream.user_name}</h4>
           <p>{infosStream.title}</p>
-          <span>{infosStream.game_name}</span>
+          <Link
+            to={{
+              pathname: `/game/${infosStream.game_name}`,
+            }}
+          >
+            <span>{infosStream.game_name}</span>
+          </Link>
           <div className="language">{infosStream.language}</div>
           <p className="viewers-live">
             <Icon

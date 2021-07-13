@@ -1,0 +1,43 @@
+.gameStreams {
+  padding: 30px;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+}
+
+.gameStreams__container {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.gameStreams__container--img {
+  margin-right: 30px;
+  img {
+    width: 142px;
+    height: 189px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.gameStreams__container--infos {
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0e0e10;
+    margin: 15px 0;
+  }
+
+  p {
+    font-size: 18px;
+    color: #1f1f23;
+    font-weight: 400;
+  }
+
+  span {
+    font-weight: bold;
+  }
+}

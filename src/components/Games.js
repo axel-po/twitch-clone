@@ -12,8 +12,8 @@ export default function Games() {
       let dataArray = result.data.data;
       let finalArray = dataArray.map((game) => {
         let newUrl = game.box_art_url
-          .replace("{width}", "153")
-          .replace("{height}", "204");
+          .replace("{width}", "285")
+          .replace("{height}", "380");
 
         game.box_art_url = newUrl;
         return game;
@@ -37,6 +37,9 @@ export default function Games() {
             className="game"
             to={{
               pathname: `/game/${game.name}`,
+              state: {
+                gameID: game.id,
+              },
             }}
           >
             <img src={game.box_art_url} alt="cover du jeux" />

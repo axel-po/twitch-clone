@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Stream from "./Stream";
 import api from "../api";
-import { Link } from "react-router-dom";
 
 export default function TopStreams() {
   const [channels, setChannels] = useState([]);
@@ -66,7 +65,7 @@ export default function TopStreams() {
         stream.thumbnail_url = newUrl;
         return stream;
       });
-      setChannels(finalArray.slice(0, 9));
+      setChannels(finalArray.slice(0, 3));
     };
     fetchData();
   }, []);
@@ -76,34 +75,17 @@ export default function TopStreams() {
 
       <div className="topStreams__container">
         {channels.map((channel, index) => (
-          <Link
+          <Stream
             key={index}
-            className="topStream"
-            to={{
-              pathname: `/live/${channel.login}`,
-            }}
-          >
-            <div className="topStream--container">
-              <div className="topStream__container--thumbnail">
-                <img src={channel.thumbnail_url} alt="aperçu du live" />
-                <div className="topStream__container--views">
-                  {channel.viewer_count} spectateurs
-                </div>
-              </div>
-              <div className="topStream__container">
-                <div className="topStream__container--logo">
-                  <img src={channel.truePic} alt="logo du streamer" />
-                </div>
-                <div className="topStream__container--infos">
-                  <h5>{channel.title}</h5>
-                  <p>{channel.user_name}</p>
-                  <p>{channel.gameName}</p>
-                </div>
-              </div>
-            </div>
-          </Link>
+            login={channel.login}
+            thumbnail={channel.thumbnail_url}
+            viewers={channel.viewer_count}
+            logo={channel.truePic}
+            title={channel.title}
+            userName={channel.user_name}
+            gameName={channel.gameName}
+          />
         ))}
-        {/* <div className="r">Afficher plus</div> */}
       </div>
     </div>
   );
