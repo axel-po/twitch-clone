@@ -52,10 +52,14 @@ nav {
 .nav__form--container-icon {
   @include flex-center;
   width: 10%;
-  background: #f9f9f9;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  cursor: pointer;
+  button {
+    border: 0;
+    background: #f9f9f9;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+    height: 100%;
+  }
   img {
     width: 60%;
   }

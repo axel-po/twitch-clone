@@ -7,7 +7,7 @@ export default function GameStreams() {
   let { slug } = useParams();
   let location = useLocation();
   const [infosGame, setInfosGame] = useState([]);
-  // const [viewers, setViewers] = useState(0);
+  const [viewers, setViewers] = useState(0);
   const [streams, setStreams] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function GameStreams() {
       setInfosGame(dataArray);
 
       //Get infos of a streams
-      let gameID = location.state.gameID;
+      let gameID = location.state.gameID.gameId;
       const getAllStreams = await api.get(
         `https://api.twitch.tv/helix/streams?game_id=${gameID}`
       );
@@ -40,6 +40,12 @@ export default function GameStreams() {
         return stream;
       });
 
+      //Calcul of total viewers
+      let totalViewers = dataStream.reduce((acc, val) => {
+        return acc + val.viewer_count;
+      }, 0);
+
+      setViewers(totalViewers);
       //Get Profil Img of users
       let userLogin = dataStream.map((stream) => {
         return stream.user_login;
@@ -82,7 +88,7 @@ export default function GameStreams() {
         <div className="gameStreams__container--infos">
           <h2>{infosGame.name}</h2>
           <p>
-            <span>34,7k</span> spectateurs
+            <span>{viewers}</span> spectateurs
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../api";
-import { Link } from "react-router-dom";
+import Game from "./Game";
 
 export default function Games() {
   const [games, setGames] = useState([]);
@@ -11,7 +11,7 @@ export default function Games() {
 
       let dataArray = result.data.data;
       let pagination = result.data.pagination;
-      
+
       let finalArray = dataArray.map((game) => {
         let newUrl = game.box_art_url
           .replace("{width}", "285")
@@ -34,20 +34,12 @@ export default function Games() {
 
       <div className="games__container">
         {games.map((game, index) => (
-          <Link
+          <Game
             key={index}
-            className="game"
-            to={{
-              pathname: `/game/${game.name}`,
-              state: {
-                gameID: game.id,
-              },
-            }}
-          >
-            <img src={game.box_art_url} alt="cover du jeux" />
-            <h4>{game.name}</h4>
-            <p>65,7 k spectateurs</p>
-          </Link>
+            gameName={game.name}
+            gameId={game.id}
+            cover={game.box_art_url}
+          />
         ))}
       </div>
     </div>

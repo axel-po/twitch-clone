@@ -65,7 +65,7 @@ export default function TopStreams() {
         stream.thumbnail_url = newUrl;
         return stream;
       });
-      setChannels(finalArray.slice(0, 3));
+      setChannels(finalArray.slice(0, 6));
     };
     fetchData();
   }, []);

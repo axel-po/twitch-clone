@@ -30,6 +30,7 @@
   background: $violet;
   img {
     width: 100%;
+    perspective: 20px;
     height: 100%;
     transition: all 0.2s ease-in-out;
     &:hover {
