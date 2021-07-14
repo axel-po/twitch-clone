@@ -4,11 +4,11 @@ import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Live from "./pages/Live";
 import GameStreams from "./pages/GameStreams";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 export default function App() {
   return (
-    <Router>
+    <HashRouter>
       <Sidebar />
       <Nav />
       <div className="App">
@@ -18,6 +18,6 @@ export default function App() {
           <Route path="/game/:slug" component={GameStreams} exact />
         </Switch>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
